@@ -71,39 +71,33 @@
 
         /* Hero Section */
         .hero {
-            background: url('https://via.placeholder.com/1200x600') no-repeat center/cover;
-            height: 80vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #fff;
-            position: relative;
+        position: relative;
+        height: 80vh;
+        overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        .hero-slider {
+            display: flex;
+            height: 100%;
+            animation: slide 15s infinite;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+        }
+
+        .slide img {
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            object-fit: cover;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            33% { transform: translateX(-100%); }
+            66% { transform: translateX(-200%); }
+            100% { transform: translateX(0); }
         }
 
         /* Services Section */
@@ -313,9 +307,16 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Expert Cleaning Services for a Spotless Space</h1>
-            <p>ReFresh Cleaning Pros – Making your home or office shine!</p>
+        <div class="hero-slider">
+            <div class="slide">
+                <img src="./window cleaning.png" alt="Slide 1">
+            </div>
+            <div class="slide">
+                <img src="./WhatsApp Image 2025-04-27 at 17.26.19.jpeg" alt="Slide 2">
+            </div>
+            <div class="slide">
+                <img src="./deep cleaning.png" alt="Slide 3">
+            </div>
         </div>
     </section>
 
@@ -370,11 +371,11 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <h2>Contact Us</h2>
-        <form>
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="Email" required>
-            <input type="tel" placeholder="Phone" required>
-            <textarea placeholder="Message" required></textarea>
+        <form action="https://formspree.io/f/mdkgglll" method="POST">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Phone" required>
+            <textarea name="message" placeholder="Message" required></textarea>
             <button type="submit">Send Message</button>
         </form>
         <div class="map">
