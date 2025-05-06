@@ -72,32 +72,95 @@
             background: #006666;
         }
 
-        .hero {
+                .hero {
             position: relative;
-            height: 90vh;
+            height: 85vh; /* Full viewport height */
+            width: 100vw; /* Full viewport width */
             overflow: hidden;
+            margin: 0;
+            padding: 0;
         }
 
         .hero-slider {
             display: flex;
             height: 100%;
+            width: 100%;
             scroll-snap-type: x mandatory;
-            overflow-x: auto;
+            overflow-x: hidden;
             scroll-behavior: smooth;
+            position: relative;
         }
 
         .slide {
             scroll-snap-align: start;
             flex-shrink: 0;
             width: 100%;
+            height: 100%;
+            position: relative;
         }
 
         .slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
         }
 
+        /* Add overlay text */
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            z-index: 2;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Slider controls */
+        .slider-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 3;
+        }
+
+        .slider-btn {
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-btn:hover {
+            background: #fff;
+            transform: scale(1.1);
+        }
         .services, .about, .testimonials, .contact {
             padding: 60px 40px;
             text-align: center;
@@ -234,18 +297,18 @@
     <section class="hero" role="region" aria-label="Hero slider">
         <div class="hero-slider">
             <div class="slide">
-            <img src="./jpg 1.jpg" alt="Clean and modern interior after professional cleaning" loading="eager" style="width: 100%; height: 100%; object-fit: contain;">
+                <img src="./cover 2.svg" alt="Clean and modern interior" loading="eager">
             </div>
             <div class="slide">
-            <img src="./WhatsApp Image 2025-04-27 at 17.26.19.jpeg" alt="ReFresh Cleaning Pros team cleaning a modern office" style="width: 100%; height: 100%; object-fit: contain;">
+                <img src="./The New Way3.svg" alt="Professional cleaning team" loading="lazy">
             </div>
             <div class="slide">
-            <img src="./The New Way.svg" alt="Advanced deep cleaning equipment in use" style="width: 100%; height: 100%; object-fit: contain;">
+                <img src="./The New Way.svg" alt="Advanced cleaning equipment" loading="lazy">
             </div>
         </div>
         <div class="slider-controls">
-            <button class="slider-btn slider-prev" aria-label="Previous slide" style="font-size: 1.5rem; padding: 10px;">←</button>
-            <button class="slider-btn slider-next" aria-label="Next slide" style="font-size: 1.5rem; padding: 10px;">→</button>
+            <button class="slider-btn slider-prev" aria-label="Previous slide">←</button>
+            <button class="slider-btn slider-next" aria-label="Next slide">→</button>
         </div>
     </section>
 
