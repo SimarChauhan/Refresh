@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ReFresh Cleaning Pros offers professional residential, commercial, and deep cleaning services with eco-friendly products.">
+    <meta name="keywords" content="cleaning services, residential cleaning, commercial cleaning, eco-friendly cleaning">
     <title>ReFresh Cleaning Pros</title>
     <link rel="icon" href="./favicon.ico">
     <style>
@@ -54,17 +56,19 @@
             color: #00a99d;
         }
 
-        .cta {
+        .btn {
             background: #008080;
             color: #fff;
             padding: 10px 20px;
+            border: none;
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
+            cursor: pointer;
             transition: background 0.3s;
         }
 
-        .cta:hover {
+        .btn:hover {
             background: #006666;
         }
 
@@ -92,6 +96,28 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .slider-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .slider-btn {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .slider-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
         }
 
         .services, .about, .testimonials, .contact {
@@ -161,18 +187,10 @@
             resize: vertical;
         }
 
-        .contact button {
-            background: #008080;
-            color: #fff;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .contact button:hover {
-            background: #006666;
+        .form-message {
+            display: none;
+            color: #008080;
+            font-weight: bold;
         }
 
         .map iframe {
@@ -212,63 +230,67 @@
     </style>
 </head>
 <body>
-    <header>
+    <header role="banner">
         <div class="logo">
             <img src="./trans Cleaning pros.png" alt="ReFresh Cleaning Pros Logo">
         </div>
-        <nav>
+        <nav role="navigation" aria-label="Main navigation">
             <ul>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#contact" class="cta">Book Now</a></li>
+                <li><a href="#contact" class="btn">Book Now</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" role="region" aria-label="Hero slider">
         <div class="hero-slider">
             <div class="slide">
-                <img src="./jpg 1.jpg" alt="Clean and fresh interior" height="100px">
+                <img src="./jpg 1.jpg" alt="Clean and modern interior after professional cleaning" loading="eager">
             </div>
             <div class="slide">
-                <img src="./WhatsApp Image 2025-04-27 at 17.26.19.jpeg" alt="Cleaning team at work">
+                <img src="./WhatsApp Image 2025-04-27 at 17.26.19.jpeg" alt="ReFresh Cleaning Pros team cleaning a modern office">
             </div>
             <div class="slide">
-                <img src="./The New Way.svg" alt="Deep cleaning equipment">
+                <img src="./The New Way.svg" alt="Advanced deep cleaning equipment in use">
             </div>
+        </div>
+        <div class="slider-controls">
+            <button class="slider-btn slider-prev" aria-label="Previous slide">←</button>
+            <button class="slider-btn slider-next" aria-label="Next slide">→</button>
         </div>
     </section>
 
-    <section class="services" id="services">
+    <section class="services" id="services" role="region" aria-label="Services">
         <h2>Our Services</h2>
         <div class="service-list">
             <div class="service">
-                <img src="./residential Untitled design.png" alt="Residential & Commercial Cleaning">
+                <img src="./residential Untitled design.png" alt="Residential and commercial cleaning service" loading="lazy">
                 <h3>Residential & Commercial Cleaning</h3>
                 <p>Experience a pristine environment with our expert cleaning services for homes and offices.</p>
             </div>
             <div class="service">
-                <img src="./window cleaning.png" alt="Carpet & Window Cleaning">
+                <img src="./window cleaning.png" alt="Carpet and window cleaning service" loading="lazy">
                 <h3>Carpet & Window Cleaning</h3>
                 <p>Our professionals ensure your carpets and windows are spotless, fresh, and streak-free.</p>
             </div>
             <div class="service">
-                <img src="./deep cleaning.png" alt="Custom & Deep Cleaning">
+                <img src="./deep cleaning.png" alt="Custom and deep cleaning service" loading="lazy">
                 <h3>Custom & Deep Cleaning</h3>
                 <p>Get personalized cleaning solutions, including deep cleaning for those challenging areas.</p>
             </div>
         </div>
     </section>
 
-    <section class="about" id="about">
+    <section class="about" id="about" role="region" aria-label="About">
         <h2>About ReFresh Cleaning Pros</h2>
         <p>At ReFresh Cleaning Pros, we are dedicated to delivering top-notch cleaning services tailored to your needs. Our experienced team combines professionalism with a personal touch, ensuring every corner of your space is spotless and inviting. We take pride in using eco-friendly, non-toxic products to create a healthier environment for you and your loved ones.</p>
-        <img src="WhatsApp Image 2025-04-27 at 17.26.19.jpeg" alt="Our team at work">
+        <img src="./WhatsApp Image 2025-04-27 at 17.26.19.jpeg" alt="ReFresh Cleaning Pros team at work in a modern office" loading="lazy">
     </section>
 
-    <section class="testimonials" id="testimonials">
+    <section class="testimonials" id="testimonials" role="region" aria-label="Testimonials">
         <h2>What Our Clients Say</h2>
         <div class="testimonial-list">
             <div class="testimonial">
@@ -286,22 +308,81 @@
         </div>
     </section>
 
-    <section class="contact" id="contact">
+    <section class="contact" id="contact" role="region" aria-label="Contact">
         <h2>Contact Us</h2>
-        <form action="https://formspree.io/f/xwpoonav" method="POST">
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="tel" name="phone" placeholder="Phone" required>
-            <textarea name="message" placeholder="Message" required></textarea>
-            <button type="submit">Send Message</button>
+        <form action="https://formspree.io/f/xwpoonav" method="POST" id="contact-form">
+            <input type="text" name="name" placeholder="Name" required aria-label="Name">
+            <input type="email" name="email" placeholder="Email" required aria-label="Email">
+            <input type="tel" name="phone" placeholder="Phone" required aria-label="Phone">
+            <textarea name="message" placeholder="Message" required aria-label="Message"></textarea>
+            <button type="submit" class="btn">Send Message</button>
+            <p class="form-message" id="form-message"></p>
         </form>
         <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d30207.199748199004!2d-64.78211974047956!3d46.09826222287391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sca!4v1746409283660!5m2!1sen!2sca" loading="lazy" allowfullscreen></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d30207.199748199004!2d-64.78211974047956!3d46.09826222287391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sca!4v1746409283660!5m2!1sen!2sca" loading="lazy" allowfullscreen aria-label="Map showing ReFresh Cleaning Pros location"></iframe>
         </div>
     </section>
 
-    <footer>
+    <footer role="contentinfo">
         <p>© 2025 ReFresh Cleaning Pros. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Hero slider functionality
+        const slider = document.querySelector('.hero-slider');
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.slider-prev');
+        const nextBtn = document.querySelector('.slider-next');
+        let currentSlide = 0;
+
+        function goToSlide(index) {
+            currentSlide = (index + slides.length) % slides.length;
+            slider.scrollTo({ left: slides[currentSlide].offsetLeft, behavior: 'smooth' });
+        }
+
+        prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+        nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+        // Auto-slide every 5 seconds
+        setInterval(() => goToSlide(currentSlide + 1), 5000);
+
+        // Form submission feedback
+        const form = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message');
+
+        form.addEventListener('submit', async e => {
+            e.preventDefault();
+            formMessage.style.display = 'block';
+            formMessage.textContent = 'Sending...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    formMessage.textContent = 'Message sent successfully!';
+                    form.reset();
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 3000);
+                } else {
+                    formMessage.textContent = 'Error sending message. Please try again.';
+                }
+            } catch (error) {
+                formMessage.textContent = 'Error sending message. Please try again.';
+            }
+        });
+    </script>
 </body>
 </html>
