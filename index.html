@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReFresh Cleaning Pros</title>
+    <link rel="icon" href="./favicon.ico">
     <style>
         * {
             margin: 0;
@@ -17,7 +18,6 @@
             color: #333;
         }
 
-        /* Header */
         header {
             background: #fff;
             padding: 20px 40px;
@@ -69,22 +69,24 @@
             background: #006666;
         }
 
-        /* Hero Section */
         .hero {
-        position: relative;
-        height: 80vh;
-        overflow: hidden;
+            position: relative;
+            height: 70vh;
+            overflow: hidden;
         }
 
         .hero-slider {
             display: flex;
             height: 100%;
-            animation: slide 15s infinite;
+            scroll-snap-type: x mandatory;
+            overflow-x: auto;
+            scroll-behavior: smooth;
         }
 
         .slide {
-            min-width: 100%;
-            height: 100%;
+            scroll-snap-align: start;
+            flex-shrink: 0;
+            width: 100%;
         }
 
         .slide img {
@@ -93,34 +95,25 @@
             object-fit: cover;
         }
 
-        @keyframes slide {
-            0% { transform: translateX(0); }
-            33% { transform: translateX(-100%); }
-            66% { transform: translateX(-200%); }
-            100% { transform: translateX(0); }
-        }
-
-        /* Services Section */
-        .services {
+        .services, .about, .testimonials, .contact {
             padding: 60px 40px;
             text-align: center;
-            background: #f5f7fa;
         }
 
-        .services h2 {
+        .services h2, .about h2, .testimonials h2, .contact h2 {
             font-size: 2.5rem;
             color: #008080;
             margin-bottom: 40px;
         }
 
-        .service-list {
+        .service-list, .testimonial-list {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 30px;
         }
 
-        .service {
+        .service, .testimonial {
             width: 30%;
             min-width: 250px;
             background: #fff;
@@ -129,21 +122,13 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .service h3 {
+        .service h3, .testimonial span {
             color: #008080;
             margin-bottom: 15px;
         }
 
-        /* About Section */
-        .about {
-            padding: 60px 40px;
-            text-align: center;
-        }
-
-        .about h2 {
-            font-size: 2.5rem;
-            color: #008080;
-            margin-bottom: 20px;
+        .testimonial p {
+            font-style: italic;
         }
 
         .about p {
@@ -152,60 +137,9 @@
             font-size: 1.1rem;
         }
 
-        .about img {
+        .about img, .service img {
             max-width: 100%;
             border-radius: 10px;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            padding: 60px 40px;
-            background: #f5f7fa;
-            text-align: center;
-        }
-
-        .testimonials h2 {
-            font-size: 2.5rem;
-            color: #008080;
-            margin-bottom: 40px;
-        }
-
-        .testimonial-list {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .testimonial {
-            width: 30%;
-            min-width: 250px;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .testimonial p {
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-
-        .testimonial span {
-            font-weight: bold;
-            color: #008080;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 60px 40px;
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-size: 2.5rem;
-            color: #008080;
-            margin-bottom: 40px;
         }
 
         .contact form {
@@ -250,7 +184,6 @@
             border-radius: 10px;
         }
 
-        /* Footer */
         footer {
             background: #008080;
             color: #fff;
@@ -258,7 +191,6 @@
             padding: 20px;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -277,22 +209,13 @@
             .service, .testimonial {
                 width: 100%;
             }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="logo">
-            <img src="./trans Cleaning pros.png" alt="ReFresh Cleaning Pros Logo" style="height: 200px; width: 150px;">
+            <img src="./trans Cleaning pros.png" alt="ReFresh Cleaning Pros Logo">
         </div>
         <nav>
             <ul>
@@ -305,51 +228,47 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-slider">
             <div class="slide">
-                <img src="./jpg 1.jpg" alt="Slide 1">
+                <img src="./jpg 1.jpg" alt="Clean and fresh interior" height="100px">
             </div>
             <div class="slide">
-                <img src="./WhatsApp Image 2025-04-27 at 17.26.19.jpeg" alt="Slide 2">
+                <img src="./WhatsApp Image 2025-04-27 at 17.26.19.jpeg" alt="Cleaning team at work">
             </div>
             <div class="slide">
-                <img src="./deep cleaning.png" alt="Slide 3">
+                <img src="./deep cleaning.png" alt="Deep cleaning equipment">
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
     <section class="services" id="services">
         <h2>Our Services</h2>
         <div class="service-list">
             <div class="service">
-                <img src="./residential Untitled design.png" alt="Residential & Commercial Cleaning" style="width: 100%; height: auto; border-radius: 10px; max-width: 700px;">
+                <img src="./residential Untitled design.png" alt="Residential & Commercial Cleaning">
                 <h3>Residential & Commercial Cleaning</h3>
                 <p>Experience a pristine environment with our expert cleaning services for homes and offices.</p>
             </div>
             <div class="service">
-                <img src="./window cleaning.png" alt="Carpet & Window Cleaning" style="width: 100%; height: auto; border-radius: 10px; max-width: 700px;">
+                <img src="./window cleaning.png" alt="Carpet & Window Cleaning">
                 <h3>Carpet & Window Cleaning</h3>
                 <p>Our professionals ensure your carpets and windows are spotless, fresh, and streak-free.</p>
             </div>
             <div class="service">
-                <img src="./deep cleaning.png" alt="Custom & Deep Cleaning" style="width: 100%; height: auto; border-radius: 10px; max-width: 700px;">
+                <img src="./deep cleaning.png" alt="Custom & Deep Cleaning">
                 <h3>Custom & Deep Cleaning</h3>
                 <p>Get personalized cleaning solutions, including deep cleaning for those challenging areas.</p>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="about" id="about">
         <h2>About ReFresh Cleaning Pros</h2>
         <p>At ReFresh Cleaning Pros, we are dedicated to delivering top-notch cleaning services tailored to your needs. Our experienced team combines professionalism with a personal touch, ensuring every corner of your space is spotless and inviting. We take pride in using eco-friendly, non-toxic products to create a healthier environment for you and your loved ones.</p>
-        <img src="WhatsApp Image 2025-04-27 at 17.26.19.jpeg" alt="Our Team" style="width: 100%; height: auto; border-radius: 10px; max-width: 800px; margin-top: 20px;">
+        <img src="WhatsApp Image 2025-04-27 at 17.26.19.jpeg" alt="Our team at work">
     </section>
 
-    <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
         <h2>What Our Clients Say</h2>
         <div class="testimonial-list">
@@ -368,7 +287,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="contact" id="contact">
         <h2>Contact Us</h2>
         <form action="https://formspree.io/f/xwpoonav" method="POST">
@@ -379,11 +297,10 @@
             <button type="submit">Send Message</button>
         </form>
         <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d30207.199748199004!2d-64.78211974047956!3d46.09826222287391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sca!4v1746409283660!5m2!1sen!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d30207.199748199004!2d-64.78211974047956!3d46.09826222287391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sca!4v1746409283660!5m2!1sen!2sca" loading="lazy" allowfullscreen></iframe>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>© 2025 ReFresh Cleaning Pros. All Rights Reserved.</p>
     </footer>
