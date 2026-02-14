@@ -861,19 +861,28 @@ nav ul li a:hover::after {
 .mobile-cta-bar a {
     flex: 1;
     text-align: center;
-    padding: 12px 16px;
+    padding: 14px 16px;
     background: #fff;
     color: #008080;
     text-decoration: none;
     font-weight: 600;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 0.95rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .mobile-cta-bar a:last-child {
     background: transparent;
     color: #fff;
-    border: 2px solid #fff;
+    border: 2px solid rgba(255,255,255,0.9);
+}
+
+.mobile-cta-bar a:first-child {
+    background: #fff;
+    color: #008080;
 }
 
 @media (max-width: 768px) {
@@ -884,7 +893,8 @@ nav ul li a:hover::after {
     }
 
     body {
-        padding-bottom: 70px; /* Space for sticky CTA */
+        padding-bottom: 78px; /* Space for sticky CTA */
+        overflow-x: hidden;
     }
 }
 
@@ -943,104 +953,151 @@ footer {
 
 /* Mobile styles */
 @media (max-width: 768px) {
+    /* Top bar - compact, hide on very small or simplify */
     .top-bar {
-        padding: 10px 16px;
+        padding: 8px 16px;
         font-size: 0.8rem;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
         text-align: center;
     }
 
     .top-bar span {
-        flex: 1;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .top-bar a[href^="tel"] {
+        font-weight: 700;
         white-space: nowrap;
     }
 
     .top-bar .top-bar-cta {
-        flex-shrink: 0;
-        padding: 6px 14px;
+        padding: 8px 16px;
         font-size: 0.85rem;
     }
 
+    /* Section spacing - more breathing room */
     .services, .about, .testimonials, .contact, .why-choose, .service-areas, .faq-section {
-        padding: 40px 20px;
+        padding: 48px 20px;
     }
 
     .services h2, .about h2, .testimonials h2, .contact h2, .work-process h2 {
-        font-size: 1.75rem;
-        margin-bottom: 25px;
+        font-size: 1.65rem;
+        margin-bottom: 28px;
+        line-height: 1.25;
     }
 
     .section-label {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+        letter-spacing: 1.5px;
     }
 
-    /* Hero content - mobile friendly */
+    /* Hero - simplified for mobile, scrollable if needed */
+    .hero {
+        min-height: 100svh;
+        min-height: 100vh;
+    }
+
     .hero-content {
-        padding: 0 16px;
+        padding: 0 20px;
+        top: 45%;
+        max-height: 85vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .hero-content .section-label {
+        display: none; /* Simplify - less clutter on mobile */
     }
 
     .hero-content h1 {
-        font-size: 1.75rem;
-        line-height: 1.3;
+        font-size: 1.6rem;
+        line-height: 1.25;
         margin-bottom: 12px;
     }
 
     .hero-content p {
         font-size: 0.95rem;
-        margin-bottom: 15px;
+        margin-bottom: 12px;
+        line-height: 1.5;
+    }
+
+    /* Hide long intro paragraph on mobile - keep headline + badge + CTAs */
+    .hero-content p:not(.service-area-badge):not(.section-label) {
+        display: none;
     }
 
     .hero-content .service-area-badge {
-        font-size: 0.8rem;
-        margin-bottom: 20px;
+        font-size: 0.85rem;
+        margin-bottom: 16px;
     }
 
     .hero-badges {
-        flex-direction: column;
-        gap: 12px;
-        margin-bottom: 20px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 16px;
+        margin-bottom: 24px;
     }
 
     .hero-badges li {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     .hero-content .cta-group {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
         width: 100%;
-        max-width: 280px;
+        max-width: 100%;
+        padding: 0 10px;
         margin: 0 auto;
     }
 
     .hero-content .cta-group .cta {
         width: 100%;
         text-align: center;
-        padding: 14px 20px;
+        padding: 16px 24px;
+        font-size: 1rem;
     }
 
     .slider-controls {
-        bottom: 20px;
-        gap: 15px;
+        bottom: 16px;
+        gap: 12px;
     }
 
     .slider-btn {
-        width: 44px;
-        height: 44px;
-        font-size: 1.2rem;
+        width: 48px;
+        height: 48px;
+        font-size: 1.25rem;
     }
 
-    /* Service cards - full width on mobile */
+    /* Service cards - full width, better spacing */
+    .service-list, .testimonial-list {
+        gap: 24px;
+    }
+
     .service, .testimonial {
         width: 100%;
         min-width: 100%;
+        padding: 24px 20px;
     }
 
     .service img {
         height: 200px;
+        border-radius: 12px 12px 0 0;
+    }
+
+    .service h3 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+
+    .service ul li {
+        font-size: 0.9rem;
     }
 
     .about img {
@@ -1169,12 +1226,14 @@ footer {
         left: 0;
         width: 100%;
         height: 100vh;
-        background: rgba(255, 255, 255, 0.98);
-        padding: 80px 20px 100px;
+        height: 100dvh;
+        background: #fff;
+        padding: 90px 24px 120px;
         transform: translateX(-100%);
         transition: transform 0.3s ease;
         z-index: 1000;
         overflow-y: auto;
+        box-shadow: 4px 0 20px rgba(0,0,0,0.1);
     }
 
     nav.active {
@@ -1183,8 +1242,8 @@ footer {
 
     nav ul {
         flex-direction: column;
-        align-items: center;
-        gap: 8px;
+        align-items: stretch;
+        gap: 4px;
         margin: 0;
     }
 
@@ -1195,40 +1254,37 @@ footer {
     }
 
     nav ul li a {
-        display: block;
-        padding: 16px;
-        font-size: 1.1rem;
-        min-height: 48px;
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 18px 20px;
+        font-size: 1.1rem;
+        min-height: 52px;
     }
 
     nav ul li a::after {
         display: none;
     }
 
+    nav ul li a.cta {
+        margin: 16px auto 0;
+        max-width: 200px;
+        border-radius: 30px;
+    }
+
     .cta {
-        padding: 14px 24px;
-        min-height: 48px;
+        padding: 16px 28px;
+        min-height: 52px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
     }
 
     .slide img {
-        width: 100vw;
-        height: 50vh;
-        max-width: 100%;
-        max-height: 60vw;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
         object-position: center;
-        background: #f8f8f8;
-    }
-
-    .hero {
-        height: 60vh;
-        min-height: 350px;
     }
 
     .hero-slider {
@@ -1256,14 +1312,17 @@ footer {
 }
 
 @media (max-width: 480px) {
+    /* Top bar - compact */
     .top-bar {
         font-size: 0.75rem;
-        padding: 8px 12px;
+        padding: 10px 12px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .top-bar span {
-        white-space: normal;
-        line-height: 1.3;
+        width: 100%;
+        text-align: center;
     }
 
     header {
@@ -1271,23 +1330,27 @@ footer {
     }
 
     .logo img {
-        max-height: 55px;
+        max-height: 50px;
     }
 
-    .services, .about, .testimonials, .contact {
-        padding: 30px 16px;
+    .services, .about, .testimonials, .contact, .why-choose, .service-areas, .faq-section {
+        padding: 36px 16px;
     }
 
-    .services h2, .about h2, .testimonials h2, .contact h2 {
-        font-size: 1.5rem;
+    .services h2, .about h2, .testimonials h2, .contact h2, .work-process h2 {
+        font-size: 1.45rem;
     }
 
     .hero-content h1 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
-    .hero-content p {
-        font-size: 0.9rem;
+    .hero-content .service-area-badge {
+        font-size: 0.8rem;
+    }
+
+    .hero-badges li {
+        font-size: 0.75rem;
     }
 
     .service img {
@@ -1302,50 +1365,51 @@ footer {
         height: 200px;
     }
 
-    .slide img {
-        height: 45vh;
-        max-height: 65vw;
-    }
-
-    .hero {
-        height: 55vh;
-        min-height: 320px;
-    }
-
     .mobile-cta-bar {
-        padding: 10px 16px;
-        gap: 10px;
+        padding: 12px 16px;
+        gap: 12px;
     }
 
     .mobile-cta-bar a {
-        padding: 14px 12px;
-        font-size: 0.9rem;
+        padding: 16px 16px;
+        font-size: 0.95rem;
     }
 
     .page-header {
-        padding: 40px 16px;
+        padding: 36px 16px;
     }
 
     .page-header h1 {
-        font-size: 1.5rem;
+        font-size: 1.45rem;
+    }
+
+    .promo-banner {
+        padding: 36px 16px;
     }
 
     .promo-banner h2 {
+        font-size: 1.2rem;
+    }
+
+    .process-step .step-num {
+        width: 48px;
+        height: 48px;
+        line-height: 48px;
         font-size: 1.25rem;
     }
 
     .map iframe {
-        height: 250px;
+        height: 260px;
     }
 
     body {
-        padding-bottom: 75px;
+        padding-bottom: 80px;
     }
 
     .back-to-top {
         right: 12px;
-        bottom: 90px;
-        width: 44px;
-        height: 44px;
+        bottom: 95px;
+        width: 46px;
+        height: 46px;
     }
 }
