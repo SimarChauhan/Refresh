@@ -123,21 +123,21 @@ nav ul li a:hover::after {
 }
 
 .cta {
-    background: #008080;
+    background: linear-gradient(135deg, #008080 0%, #00a99d 100%);
     color: #fff;
-    padding: 12px 24px;
-    border-radius: 30px;
+    padding: 12px 26px;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     display: inline-block;
-    box-shadow: 0 4px 15px rgba(0, 128, 128, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 128, 128, 0.3);
 }
 
 .cta:hover {
-    background: #006666;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 128, 128, 0.4);
+    background: linear-gradient(135deg, #006666 0%, #008080 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 128, 128, 0.4);
 }
 
 /* Mobile menu button */
@@ -281,15 +281,16 @@ nav ul li a:hover::after {
 
 .hero-content .service-area-badge {
     font-size: 0.9rem;
-    opacity: 0.9;
+    opacity: 0.95;
     margin-bottom: 30px;
+    letter-spacing: 0.5px;
 }
 
 .hero-badges {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 25px;
+    gap: 12px 16px;
     margin-bottom: 30px;
     list-style: none;
     padding: 0;
@@ -297,11 +298,16 @@ nav ul li a:hover::after {
 
 .hero-badges li {
     list-style: none;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    padding: 10px 18px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .hero-badges li::before {
@@ -356,10 +362,11 @@ nav ul li a:hover::after {
 
 .services h2, .about h2, .testimonials h2, .contact h2 {
     font-size: 2.5rem;
-    color: #008080;
+    color: #006666;
     margin-bottom: 40px;
     font-weight: 700;
     letter-spacing: -0.02em;
+    line-height: 1.2;
 }
 
 .service-list, .testimonial-list {
@@ -373,26 +380,77 @@ nav ul li a:hover::after {
     width: 30%;
     min-width: 250px;
     background: #fff;
-    padding: 24px;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s ease;
-    border: 1px solid rgba(0, 128, 128, 0.08);
+    padding: 0;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 128, 128, 0.04);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid rgba(0, 128, 128, 0.06);
+    overflow: hidden;
 }
 
 .service:hover, .testimonial:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 128, 128, 0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 128, 128, 0.12);
+}
+
+.service > h3,
+.service > ul,
+.service > a.cta {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.service > h3 {
+    padding-top: 22px;
+}
+
+.service > ul {
+    padding-bottom: 8px;
+}
+
+.service > a.cta {
+    padding-bottom: 24px;
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-top: 8px;
+}
+
+.testimonial {
+    padding: 28px 26px 24px;
 }
 
 .service h3, .testimonial span {
     color: #008080;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.testimonial span {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.9;
 }
 
 .testimonial p {
     font-style: italic;
     position: relative;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #444;
+    padding-left: 20px;
+}
+
+.testimonial p::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -4px;
+    font-size: 2.5rem;
+    font-family: Georgia, serif;
+    color: rgba(0, 128, 128, 0.2);
+    line-height: 1;
 }
 
 .about p {
@@ -407,11 +465,23 @@ nav ul li a:hover::after {
 }
 
 /* Service card images - consistent aspect ratio */
+.service {
+    display: flex;
+    flex-direction: column;
+}
+
 .service img {
     width: 100%;
     height: 220px;
     object-fit: cover;
     object-position: center;
+    flex-shrink: 0;
+    border-radius: 20px 20px 0 0;
+}
+
+.service ul {
+    text-align: left;
+    margin: 0 0 8px;
 }
 
 /* About section single image (home page) */
@@ -484,18 +554,20 @@ nav ul li a:hover::after {
 }
 
 .service-areas li {
-    padding: 12px 24px;
+    padding: 14px 28px;
     background: #fff;
-    border-radius: 30px;
+    border-radius: 50px;
     color: #008080;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
     transition: all 0.3s ease;
+    border: 1px solid rgba(0, 128, 128, 0.08);
 }
 
 .service-areas li:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 128, 128, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 128, 128, 0.12);
+    border-color: rgba(0, 128, 128, 0.2);
 }
 
 /* FAQ */
@@ -507,26 +579,30 @@ nav ul li a:hover::after {
 
 .faq-item {
     background: #fff;
-    padding: 24px 28px;
+    padding: 24px 28px 24px 32px;
     margin-bottom: 16px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     transition: all 0.3s ease;
+    border-left: 4px solid transparent;
 }
 
 .faq-item:hover {
-    box-shadow: 0 6px 24px rgba(0, 128, 128, 0.1);
+    box-shadow: 0 6px 24px rgba(0, 128, 128, 0.08);
+    border-left-color: #008080;
 }
 
 .faq-item h3 {
     color: #008080;
     font-size: 1.1rem;
     margin-bottom: 8px;
+    font-weight: 600;
 }
 
 .faq-item p {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #444;
 }
 
 /* Contact info block */
@@ -662,12 +738,13 @@ nav ul li a:hover::after {
 
 /* Section labels (small caps style) */
 .section-label {
-    font-size: 0.85rem;
-    letter-spacing: 2px;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
     text-transform: uppercase;
     color: #008080;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     font-weight: 600;
+    opacity: 0.9;
 }
 
 /* Work Process section */
@@ -706,35 +783,37 @@ nav ul li a:hover::after {
 }
 
 .process-step .step-num {
-    display: inline-block;
-    width: 56px;
-    height: 56px;
-    background: linear-gradient(135deg, #008080 0%, #00a99d 100%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(145deg, #008080 0%, #00a99d 100%);
     color: #fff;
-    border-radius: 50%;
+    border-radius: 16px;
     font-size: 1.5rem;
-    font-weight: bold;
-    line-height: 56px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(0, 128, 128, 0.4);
+    font-weight: 700;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 20px rgba(0, 128, 128, 0.35);
     transition: all 0.3s ease;
 }
 
 .process-step:hover .step-num {
-    transform: rotate(5deg);
-    box-shadow: 0 6px 20px rgba(0, 128, 128, 0.5);
+    transform: scale(1.08);
+    box-shadow: 0 8px 28px rgba(0, 128, 128, 0.45);
 }
 
 .process-step h3 {
-    color: #333;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    color: #222;
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    font-weight: 600;
 }
 
 .process-step p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #555;
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
 /* Promo banner */
@@ -759,19 +838,23 @@ nav ul li a:hover::after {
 }
 
 .promo-banner h2 {
-    font-size: 2rem;
-    margin-bottom: 12px;
+    font-size: 2.1rem;
+    margin-bottom: 14px;
     font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .promo-banner p {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     margin-bottom: 28px;
     opacity: 0.95;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .promo-banner strong {
-    color: #90EE90;
+    color: #a8f5e8;
 }
 
 .promo-banner .cta {
@@ -947,6 +1030,35 @@ footer {
 
 .footer-col a:hover {
     color: #fff;
+}
+
+/* Social links with icons */
+.social-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.social-links .fab {
+    font-size: 1.1rem;
 }
 
 .footer-bottom {
