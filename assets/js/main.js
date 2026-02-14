@@ -47,17 +47,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.slide');
     const prevBtn = document.querySelector('.slider-prev');
     const nextBtn = document.querySelector('.slider-next');
+    const dots = document.querySelectorAll('.slider-dot');
 
     if (slider && slides.length && prevBtn && nextBtn) {
         let currentSlide = 0;
 
+        function updateDots() {
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+                dot.setAttribute('aria-selected', i === currentSlide);
+            });
+        }
+
         function goToSlide(index) {
             currentSlide = (index + slides.length) % slides.length;
             slider.scrollTo({ left: slides[currentSlide].offsetLeft, behavior: 'smooth' });
+            updateDots();
         }
 
         prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
         nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+        dots.forEach((dot, i) => dot.addEventListener('click', () => goToSlide(i)));
         setInterval(() => goToSlide(currentSlide + 1), 5000);
     }
 

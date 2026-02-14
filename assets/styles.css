@@ -211,7 +211,7 @@ nav ul li a:hover::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.35);
+    background: rgba(0, 0, 0, 0.48);
     z-index: 1;
     pointer-events: none;
 }
@@ -324,6 +324,31 @@ nav ul li a:hover::after {
     flex-wrap: wrap;
 }
 
+.hero-content .cta-primary {
+    background: #fff;
+    color: #008080;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.hero-content .cta-primary:hover {
+    background: #f0f0f0;
+    color: #006666;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content .cta-secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: none;
+}
+
+.hero-content .cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border-color: #fff;
+}
+
 .slider-controls {
     position: absolute;
     bottom: 30px;
@@ -331,8 +356,38 @@ nav ul li a:hover::after {
     right: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20px;
     z-index: 3;
+}
+
+.slider-dots {
+    display: flex;
+    gap: 10px;
+    padding: 0 8px;
+}
+
+.slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background: transparent;
+    cursor: pointer;
+    padding: 13px;
+    margin: -13px 0;
+    transition: all 0.3s ease;
+    box-sizing: content-box;
+}
+
+.slider-dot:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.slider-dot.active {
+    background: #fff;
+    border-color: #fff;
+    transform: scale(1.2);
 }
 
 .slider-btn {
@@ -1258,8 +1313,9 @@ footer {
 
     .slider-controls {
         bottom: 80px; /* Above mobile CTA bar */
-        gap: 12px;
+        gap: 10px;
     }
+
 
     .slider-btn {
         width: 48px;
