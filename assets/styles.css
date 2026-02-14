@@ -281,6 +281,7 @@ nav ul li a:hover::after {
 
 .hero-content .service-area-badge {
     font-size: 0.9rem;
+    font-weight: 700;
     opacity: 0.95;
     margin-bottom: 30px;
     letter-spacing: 0.5px;
@@ -457,6 +458,58 @@ nav ul li a:hover::after {
     max-width: 800px;
     margin: 0 auto 30px;
     font-size: 1.1rem;
+}
+
+/* Why Moncton Chooses ReFresh - points below heading, image to side */
+.why-choose-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    max-width: 900px;
+    margin: 30px auto 0;
+    text-align: left;
+}
+
+.why-choose-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.why-choose-content .section-label {
+    margin-top: 0;
+}
+
+.why-choose-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0;
+}
+
+.why-choose-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+}
+
+.why-choose-list li::before {
+    content: "✓";
+    font-weight: bold;
+    color: #008080;
+    flex-shrink: 0;
+}
+
+.why-choose-image {
+    flex-shrink: 0;
+}
+
+.why-choose-image img {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
 }
 
 .about img, .service img {
@@ -1043,8 +1096,8 @@ footer {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.15);
     color: #fff;
@@ -1058,7 +1111,7 @@ footer {
 }
 
 .social-links .fab {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
 }
 
 .footer-bottom {
@@ -1170,6 +1223,7 @@ footer {
 
     .hero-content .service-area-badge {
         font-size: 0.85rem;
+        font-weight: 700;
         margin-bottom: 18px;
         opacity: 0.95;
     }
@@ -1265,6 +1319,26 @@ footer {
     .why-grid, .about-images {
         flex-direction: column;
         align-items: center;
+    }
+
+    .why-choose-block {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .why-choose-content {
+        text-align: center;
+    }
+
+    .why-choose-list {
+        text-align: left;
+        display: inline-block;
+        margin: 12px auto 0;
+    }
+
+    .why-choose-image img {
+        max-width: 100%;
     }
 
     .why-item {
@@ -1520,6 +1594,7 @@ footer {
 
     .hero-content .service-area-badge {
         font-size: 0.8rem;
+        font-weight: 700;
     }
 
     .hero-badges li {
