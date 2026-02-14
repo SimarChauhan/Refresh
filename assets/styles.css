@@ -71,7 +71,8 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    height: 75px;
+    height: 95px;
+    min-height: 95px;
 }
 
 .logo a {
@@ -81,7 +82,7 @@ header {
 
 .logo img {
     height: 100%;
-    max-height: 100px;
+    max-height: 130px;
     object-fit: contain;
 }
 
@@ -1499,7 +1500,7 @@ footer {
     }
 
     .logo img {
-        max-height: 70px;
+        max-height: 90px;
     }
 
     nav {
@@ -1624,7 +1625,7 @@ footer {
     }
 
     .logo img {
-        max-height: 50px;
+        max-height: 60px;
     }
 
     .services, .about, .testimonials, .contact, .why-choose, .service-areas, .faq-section {
