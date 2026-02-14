@@ -957,6 +957,21 @@ footer {
     opacity: 0.9;
 }
 
+/* Tablet / small desktop - like Refresh Nova */
+@media (max-width: 991px) {
+    .services, .about, .testimonials, .contact, .why-choose, .service-areas, .faq-section {
+        padding: 50px 24px;
+    }
+
+    .service, .testimonial {
+        min-width: 280px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+}
+
 /* Mobile styles */
 @media (max-width: 768px) {
     /* Top bar - compact, hide on very small or simplify */
@@ -1002,71 +1017,76 @@ footer {
         letter-spacing: 1.5px;
     }
 
-    /* Hero - simplified for mobile, scrollable if needed */
+    /* Hero - like Refresh Nova: full content overlay, clean spacing */
     .hero {
-        min-height: 100svh;
-        min-height: 100vh;
+        min-height: 70vh;
+        min-height: 70dvh;
     }
 
     .hero-content {
-        padding: 0 20px;
-        top: 45%;
-        max-height: 85vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 24px 20px 40px;
+        width: 100%;
+        max-height: 90vh;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
     }
 
     .hero-content .section-label {
-        display: none; /* Simplify - less clutter on mobile */
+        display: none;
     }
 
     .hero-content h1 {
-        font-size: 1.6rem;
-        line-height: 1.25;
-        margin-bottom: 12px;
+        font-size: 1.75rem;
+        line-height: 1.3;
+        margin-bottom: 14px;
     }
 
     .hero-content p {
         font-size: 0.95rem;
-        margin-bottom: 12px;
-        line-height: 1.5;
+        margin-bottom: 14px;
+        line-height: 1.6;
     }
 
-    /* Hide long intro paragraph on mobile - keep headline + badge + CTAs */
+    /* Show intro paragraph on mobile (like Refresh Nova) */
     .hero-content p:not(.service-area-badge):not(.section-label) {
-        display: none;
+        display: block;
     }
 
     .hero-content .service-area-badge {
         font-size: 0.85rem;
-        margin-bottom: 16px;
+        margin-bottom: 18px;
+        opacity: 0.95;
     }
 
     .hero-badges {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px 16px;
-        margin-bottom: 24px;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 22px;
     }
 
     .hero-badges li {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 
     .hero-content .cta-group {
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
         width: 100%;
-        max-width: 100%;
-        padding: 0 10px;
+        max-width: 300px;
+        padding: 0;
         margin: 0 auto;
     }
 
     .hero-content .cta-group .cta {
         width: 100%;
         text-align: center;
-        padding: 16px 24px;
+        padding: 14px 22px;
         font-size: 1rem;
     }
 
@@ -1332,13 +1352,32 @@ footer {
 }
 
 @media (max-width: 480px) {
-    /* Top bar - hidden on very small screens to free space for hero */
+    /* Top bar - compact strip like Refresh Nova (phone + Book Today) */
     .top-bar {
-        display: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        gap: 8px;
+    }
+
+    .top-bar span {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .top-bar .top-bar-cta {
+        flex-shrink: 0;
+        padding: 6px 14px;
+        font-size: 0.8rem;
     }
 
     header {
-        padding: 10px 12px;
+        padding: 10px 16px;
         min-height: 56px;
     }
 
@@ -1355,30 +1394,32 @@ footer {
     }
 
     .hero-content {
-        top: 40%;
-        padding: 0 16px;
+        padding: 20px 16px 36px;
     }
 
     .hero-content h1 {
-        font-size: 1.35rem;
+        font-size: 1.5rem;
         line-height: 1.3;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
     }
 
     .hero-content .service-area-badge {
         font-size: 0.8rem;
     }
 
-    .hero-badges {
-        gap: 6px 12px;
-        margin-bottom: 16px;
+    .hero-badges li {
+        font-size: 0.8rem;
     }
 
-    .hero-badges li {
-        font-size: 0.7rem;
+    .hero-content .cta-group {
+        max-width: 280px;
     }
 
     .hero-content .cta-group .cta {
-        padding: 14px 20px;
+        padding: 12px 20px;
         font-size: 0.95rem;
     }
 
