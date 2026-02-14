@@ -63,7 +63,7 @@ img {
 /* Header & Nav */
 header {
     background: #fff;
-    padding: 15px 40px;
+    padding: 12px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -71,8 +71,8 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    height: 95px;
-    min-height: 95px;
+    height: 75px;
+    overflow: hidden;
 }
 
 .logo a {
@@ -82,7 +82,7 @@ header {
 
 .logo img {
     height: 100%;
-    max-height: 130px;
+    max-height: 90px;
     object-fit: contain;
 }
 
@@ -363,9 +363,7 @@ nav ul li a:hover::after {
 }
 
 .slider-dots {
-    display: flex;
-    gap: 10px;
-    padding: 0 8px;
+    display: none;
 }
 
 .slider-dot {
@@ -1272,9 +1270,9 @@ footer {
         line-height: 1.6;
     }
 
-    /* Show intro paragraph on mobile (like Refresh Nova) */
+    /* Hide intro paragraph on mobile - reduces clutter */
     .hero-content p:not(.service-area-badge):not(.section-label) {
-        display: block;
+        display: none;
     }
 
     .hero-content .service-area-badge {
@@ -1285,15 +1283,16 @@ footer {
     }
 
     .hero-badges {
-        flex-direction: column;
-        flex-wrap: nowrap;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 22px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px 12px;
+        margin-bottom: 20px;
     }
 
     .hero-badges li {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
+        padding: 6px 12px;
     }
 
     .hero-content .cta-group {
@@ -1500,7 +1499,7 @@ footer {
     }
 
     .logo img {
-        max-height: 90px;
+        max-height: 65px;
     }
 
     nav {
@@ -1625,7 +1624,7 @@ footer {
     }
 
     .logo img {
-        max-height: 60px;
+        max-height: 50px;
     }
 
     .services, .about, .testimonials, .contact, .why-choose, .service-areas, .faq-section {
@@ -1652,14 +1651,17 @@ footer {
     .hero-content .service-area-badge {
         font-size: 0.8rem;
         font-weight: 700;
+        margin-bottom: 16px;
     }
 
-    .hero-badges li {
-        font-size: 0.8rem;
+    /* Hide badges on smallest screens - headline + area + CTAs only */
+    .hero-badges {
+        display: none;
     }
 
     .hero-content .cta-group {
         max-width: 280px;
+        margin-top: 4px;
     }
 
     .hero-content .cta-group .cta {
