@@ -71,6 +71,24 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(() => goToSlide(currentSlide + 1), 5000);
     }
 
+    // Before and after comparison sliders
+    document.querySelectorAll('.comparison-slider').forEach(comparison => {
+        const range = comparison.querySelector('input[type="range"]');
+        const after = comparison.querySelector('.comparison-after');
+        const handle = comparison.querySelector('.comparison-handle');
+
+        if (!range || !after || !handle) return;
+
+        const updateComparison = () => {
+            const value = `${range.value}%`;
+            after.style.width = value;
+            handle.style.left = value;
+        };
+
+        range.addEventListener('input', updateComparison);
+        updateComparison();
+    });
+
     // Back to top button
     const backToTop = document.querySelector('.back-to-top');
     if (backToTop) {
@@ -100,10 +118,12 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', revealOnScroll);
 
     // Contact form (only on contact page)
-    const form = document.getElementById('contact-form');
-    const formMessage = document.getElementById('form-message');
+    const forms = document.querySelectorAll('#contact-form, .quote-form');
 
-    if (form && formMessage) {
+    forms.forEach(form => {
+        const formMessage = form.querySelector('.form-message') || document.getElementById(form.getAttribute('aria-describedby'));
+        if (!formMessage) return;
+
         form.addEventListener('submit', async e => {
             e.preventDefault();
             formMessage.style.display = 'block';
@@ -127,5 +147,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 formMessage.textContent = 'Error sending message. Please try again.';
             }
         });
-    }
+    });
 });
