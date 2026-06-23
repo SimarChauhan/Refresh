@@ -1970,9 +1970,11 @@ nav ul .submenu a::after {
     display: flex;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
 }
 
 .mobile-cta-bar a:last-child {
+    flex: 1.08;
     background: transparent;
     color: #fff;
     border: 2px solid rgba(255,255,255,0.9);
@@ -2833,8 +2835,8 @@ footer {
     }
 
     .mobile-cta-bar a {
-        padding: 14px 16px;
-        font-size: 0.95rem;
+        padding: 14px 12px;
+        font-size: 0.92rem;
         min-height: 44px;
     }
 
